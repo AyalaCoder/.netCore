@@ -1,0 +1,8 @@
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.csproj.AssemblyReference.cache
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.AssemblyInfoInputs.cache
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.AssemblyInfo.cs
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.csproj.CoreCompileInputs.cache
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\משתמש\Desktop\מסלול יד\API\final project\final project\obj\Debug\net8.0\final project.sourcelink.json

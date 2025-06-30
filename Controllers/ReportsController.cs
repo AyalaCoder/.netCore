@@ -7,9 +7,5 @@ namespace final_project.Controllers
     [ApiController]
     public class ReportsController : ControllerBase
     {
-        [HttpGet]
-        [HttpPost]
-        [HttpPut("{id}")]
-        [HttpDelete("{id}")]
     }
 }

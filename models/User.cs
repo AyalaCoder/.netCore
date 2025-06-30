@@ -5,7 +5,7 @@ namespace final_project.models
 {
     public enum RoleEnum
     {
-        user,admin
+        user, admin
     }
     public class User
     {
@@ -15,10 +15,10 @@ namespace final_project.models
         public required string Email { get; set; }
         public required string HashPassword { get; set; }
         public required string Address { get; set; }
-        public required RoleEnum Role {  get; set; }
+        public required RoleEnum Role { get; set; }
         public ICollection<Purchase> Purchases { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set;}
+        public DateTime UpdatedAt { get; set; }
 
 
     }

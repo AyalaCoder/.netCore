@@ -3,10 +3,10 @@
     public class GiftDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public string Description { get; set; }
-        public int Price {  get; set; }
-        public int CategoryID {  get; set; }
+        public required int Price {  get; set; }
+        public required int CategoryID {  get; set; }
         
     }
 }

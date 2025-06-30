@@ -13,7 +13,9 @@ namespace final_project.BL
         }
         public async Task<List<GiftDTO>> GetAllGiftsAsync()
         {
-            return await _context.Gifts
+        
+     
+                return await _context.Gifts
                 .Select(g => new GiftDTO
                 {
                     Id = g.Id,
@@ -23,12 +25,15 @@ namespace final_project.BL
                     CategoryID = g.CategoryID
                 })
                 .ToListAsync();
+            
+            
+
         }
 
         public async Task<GiftDTO> GetGiftByIdAsync(int id)
         {
             var g = await _context.Gifts.FindAsync(id);
-            if (g == null) return null;
+            if (g ==null) throw new Exception("there is no gift by this id");
 
             return new GiftDTO
             {

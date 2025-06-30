@@ -10,7 +10,7 @@ namespace final_project.models
     public required int CategoryID {  get; set; }
     public int? DonorID {  get; set; }
     public required int Price {  get; set; }
-    public ICollection<Purchase> Purchases { get; set; }
+    public ICollection<Purchase>? Purchases { get; set; }
     public int? WinnerID {  get; set; }
 
     }

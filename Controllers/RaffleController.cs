@@ -7,9 +7,5 @@ namespace final_project.Controllers
     [ApiController]
     public class RaffleController : ControllerBase
     {
-        [HttpGet]
-        [HttpPost]
-        [HttpPut("{id}")]
-        [HttpDelete("{id}")]
     }
 }

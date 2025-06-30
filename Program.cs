@@ -46,6 +46,7 @@ builder.Services.AddScoped<IDonorService, DonorService>();
 builder.Services.AddScoped<IPurchaseService, PurchaseService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IWinnerService, WinnerService>();
+builder.Services.AddScoped<IRaffleService, RaffleService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

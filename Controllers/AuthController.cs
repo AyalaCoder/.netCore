@@ -11,7 +11,7 @@ namespace final_project.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly IJwtService _jwtService; // צריך שתבני שירות שמנפיק טוקן
+        private readonly IJwtService _jwtService;
 
         public AuthController(IUserService userService, IJwtService jwtService)
         {
@@ -22,21 +22,25 @@ namespace final_project.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDTO dto)
         {
-            // כאן את צריכה להצפין סיסמה עם Hash
-            var hash = PasswordHasher.Hash(dto.Password);
-            var user = await _userService.RegisterUserAsync(dto, hash);
-            return Ok();
+            var user = await _userService.RegisterAsync(dto);
+            return Ok(new { user.Id, user.Email });
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDTO dto)
         {
-            var hash = PasswordHasher.Hash(dto.Password);
-            var user = await _userService.GetUserByEmailAndPasswordAsync(dto.Email, hash);
-            if (user == null) return Unauthorized();
+            var user = await _userService.GetUserByEmailAsync(dto.Email);
+            if (user == null) return Unauthorized("Email not found");
+
+            var hasher = new PasswordHasher<User>();
+            var result = hasher.VerifyHashedPassword(user, user.HashPassword, dto.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+                return Unauthorized("Invalid password");
 
             var token = _jwtService.GenerateToken(user);
             return Ok(new { token });
         }
     }
+
 }

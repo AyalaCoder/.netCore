@@ -18,14 +18,13 @@ namespace final_project.Controllers
             _giftService = giftService;
         }
 
-        // GET: api/gift
         [HttpGet]
         public async Task<ActionResult<List<GiftDTO>>> GetAll()
         {
             return await _giftService.GetAllGiftsAsync();
         }
 
-        // GET: api/gift/5
+ 
         [HttpGet("{id}")]
         public async Task<ActionResult<GiftDTO>> GetById(int id)
         {
@@ -35,7 +34,6 @@ namespace final_project.Controllers
             return gift;
         }
 
-        // POST: api/gift
         [HttpPost]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddGift(GiftDTO giftDto)
@@ -44,7 +42,7 @@ namespace final_project.Controllers
             return Ok();
         }
 
-        // PUT: api/gift/5
+        
         [HttpPut("{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> UpdateGift(int id, GiftDTO giftDto)
@@ -53,7 +51,7 @@ namespace final_project.Controllers
             return NoContent();
         }
 
-        // DELETE: api/gift/5
+       
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteGift(int id)

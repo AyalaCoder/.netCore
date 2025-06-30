@@ -5,7 +5,8 @@ namespace final_project.BL
 {
     public interface IUserService
     {
-        Task<User> RegisterUserAsync(RegisterDTO dto, string hashedPassword);
+        Task<User> RegisterAsync(RegisterDTO dto);
         Task<User> GetUserByEmailAndPasswordAsync(string email, string hashedPassword);
+        Task<User?> GetUserByEmailAsync(string email);
     }
 }

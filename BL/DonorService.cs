@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace final_project.BL
 {
-    public class DonorService
+    public class DonorService : IDonorService
     {
         private readonly ApplicationDbContext _context;
         public DonorService(ApplicationDbContext context)

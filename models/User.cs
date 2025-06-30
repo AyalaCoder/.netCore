@@ -1,5 +1,6 @@
 ﻿using final_project.models.DTOs;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace final_project.models
 {
@@ -9,9 +10,8 @@ namespace final_project.models
     }
     public class User
     {
-
         public int Id { get; set; }
-        public required string Name { get; set; }
+        public string Name { get; set; }
         public required string Email { get; set; }
         public required string HashPassword { get; set; }
         public required string Address { get; set; }

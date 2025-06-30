@@ -1,5 +1,6 @@
 ﻿using final_project.models;
 using final_project.models.DTOs;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace final_project.BL
@@ -13,27 +14,36 @@ namespace final_project.BL
             _context = context;
         }
 
-        public async Task<User> RegisterUserAsync(RegisterDTO dto, string hashedPassword)
+        public async Task<User> RegisterAsync(RegisterDTO dto)
         {
-            var user = new User
+            var user = new User { Email = dto.Email, Name = dto.Name };
+            var hasher = new PasswordHasher<User>();
+            var hash = hasher.HashPassword(user, dto.Password);
+
+            var newUser = new User
             {
                 Name = dto.Name,
                 Email = dto.Email,
                 Address = dto.Address,
-                HashPassword = hashedPassword,
+                HashPassword = hash,
                 Role = RoleEnum.user,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
-            _context.Users.Add(user);
+
+            _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
-            return user;
+            return newUser;
         }
 
         public async Task<User> GetUserByEmailAndPasswordAsync(string email, string hashedPassword)
         {
             return await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == email && u.HashPassword == hashedPassword);
+        }
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

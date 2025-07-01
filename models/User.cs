@@ -11,11 +11,11 @@ namespace final_project.models
     public class User
     {
         public int Id { get; set; }
+        public string HashPassword { get; set; } = string.Empty;
+        public required string Address { get; set; } = string.Empty;
+        public RoleEnum Role { get; set; } = RoleEnum.user;
         public string Name { get; set; }
         public required string Email { get; set; }
-        public required string HashPassword { get; set; }
-        public required string Address { get; set; }
-        public required RoleEnum Role { get; set; }
         public ICollection<Purchase> Purchases { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

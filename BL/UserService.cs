@@ -16,7 +16,7 @@ namespace final_project.BL
 
         public async Task<User> RegisterAsync(RegisterDTO dto)
         {
-            var user = new User { Email = dto.Email, Name = dto.Name };
+            var user = new User { Email = dto.Email, Name = dto.Name,Address=dto.Address };
             var hasher = new PasswordHasher<User>();
             var hash = hasher.HashPassword(user, dto.Password);
 
